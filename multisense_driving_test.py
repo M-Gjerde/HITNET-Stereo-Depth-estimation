@@ -8,17 +8,11 @@ from hitnet import HitNet, ModelType, draw_disparity, draw_depth, CameraConfig
 out = cv2.VideoWriter('outpy2.avi',cv2.VideoWriter_fourcc('M','J','P','G'), 30, (881*3,400))
 
 # Get image list
-# left_images = glob.glob('DrivingStereo images/left/*.jpg')
-# left_images.sort()
-#right_images = glob.glob('DrivingStereo images/right/*.jpg')
-#right_images.sort()
-#depth_images = glob.glob('DrivingStereo images/depth/*.png')
-#depth_images.sort()
-left_images = glob.glob('images/left_rect/front/*.png')
+left_images = glob.glob('DrivingStereo images/left/*.jpg')
 left_images.sort()
-right_images = glob.glob('images/right_rect/front/*.png')
+right_images = glob.glob('DrivingStereo images/right/*.jpg')
 right_images.sort()
-depth_images = glob.glob('images/disparity/front/*.png')
+depth_images = glob.glob('DrivingStereo images/depth/*.png')
 depth_images.sort()
 
 # Select model type
@@ -40,7 +34,7 @@ max_distance = 50
 hitnet_depth = HitNet(model_path, model_type, camera_config)
 
 cv2.namedWindow("Estimated depth", cv2.WINDOW_NORMAL)	
-for left_path, right_path, depth_path in zip(left_images[::50], right_images[::50], depth_images[::50]):
+for left_path, right_path, depth_path in zip(left_images[1500:1700:2], right_images[1500:1700:2], depth_images[1500:1700:2]):
 
 	# Read frame from the video
 	left_img = cv2.imread(left_path)

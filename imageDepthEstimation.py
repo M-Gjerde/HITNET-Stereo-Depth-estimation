@@ -5,9 +5,9 @@ import numpy as np
 from hitnet import HitNet, ModelType, draw_disparity, draw_depth, CameraConfig, load_img
 
 # Select model type
-# model_type = ModelType.middlebury
+model_type = ModelType.middlebury
 # model_type = ModelType.flyingthings
-model_type = ModelType.eth3d
+#model_type = ModelType.eth3d
 
 if model_type == ModelType.middlebury:
 	model_path = "models/middlebury_d400.pb"
