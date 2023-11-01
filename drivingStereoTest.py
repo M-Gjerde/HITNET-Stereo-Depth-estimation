@@ -40,7 +40,7 @@ max_distance = 50
 hitnet_depth = HitNet(model_path, model_type, camera_config)
 
 cv2.namedWindow("Estimated depth", cv2.WINDOW_NORMAL)	
-for left_path, right_path, depth_path in zip(left_images[::50], right_images[::50], depth_images[::50]):
+for left_path, right_path, depth_path in zip(left_images[::10], right_images[::10], depth_images[::10]):
 
 	# Read frame from the video
 	left_img = cv2.imread(left_path)
